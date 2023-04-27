@@ -21,7 +21,7 @@ public class ListBoard extends HttpServlet {
   
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BoardDAO.getInstance().getBoardList();
+		
 		
 		
 			//request.setAttribute("boardList", BoardDAO.getInstance().getBoardList());
