@@ -14,6 +14,7 @@
 				<tr>
 					<td>아이디</td>
 					<td><input type="text" name="memberId" autofocus required></td>
+					<!-- autofocus는 페이자 로드 될 때 해당 창을 자동으로 포커스를 맟춰줌 -->
 				</tr>
 				<tr>
 					<td>패스워드</td>
