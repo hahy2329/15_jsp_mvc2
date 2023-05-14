@@ -102,31 +102,7 @@ public class MemberDAO {
     	
     }
     
-    
-    public boolean loginMember(MemberDTO memberDTO) {
-    	
-    	boolean isLogin = false;
-    	
-    	try {
-    		
-			getConnection();
-			pstmt = conn.prepareStatement("SELECT * FROM MEMBER WHERE MEMBER_ID = ? AND PASSWD = ?");
-			pstmt.setString(1, memberDTO.getMemberId());
-			pstmt.setString(2, memberDTO.getPasswd());
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				isLogin = true;
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			getClose();
-		}
-    	
-    	return isLogin;
-    	
-    }
+  
     
     
     public MemberDTO getMemberDetail(String memberId) {
@@ -236,6 +212,37 @@ public class MemberDAO {
         } finally {
         	getClose();
         }
+    	
+    }
+    
+    
+    public boolean loginMember(MemberDTO memberDTO) {
+    	boolean isLogin = false;
+    	
+    	try {
+    		getConnection();
+    		
+    		pstmt = conn.prepareStatement("SELECT * FROM MEMBER WHERE MEMBER_ID =? AND PASSWD = ? ");
+    		pstmt.setString(1, memberDTO.getMemberId());
+    		pstmt.setString(2, memberDTO.getPasswd());
+    		rs = pstmt.executeQuery();
+    		
+    		if(rs.next()) {
+    			
+    			isLogin = true;
+    			
+    		}
+    		
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		getClose();
+    	}
+    	
+    	
+    	
+    	
+    	return isLogin;
     	
     }
    
