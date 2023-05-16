@@ -47,7 +47,7 @@ public class BoardList extends HttpServlet {
 		int allBoardCnt = BoardAdvanceDAO.getInstance().getAllBoardCnt(searchKeyword , searchWord);
 		
 		int allPageCnt = allBoardCnt / onePageViewCnt + 1;
-		
+			
 		if (allBoardCnt % onePageViewCnt == 0) allPageCnt--;
 		
 		int startPage = (currentPageNumber - 1)  / 10  * 10 + 1;
